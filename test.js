@@ -8,7 +8,7 @@ dropdownMenuContainer.appendChild(dropdownMenu);
 dropdownMenu.style.cssText = 'background-color:rgba(0, 236, 255, 0.11); margin-left:5%; padding-top:80px; padding-bottom:80px; padding-left:10px; border-radius:100px; box-shadow: 10px 10px 8px #888888; font-size:20px; overflow: auto;';
 dropdownMenu.style.width = '200px';
 dropdownMenu.style.height = '60%';
-dropdownMenu.textContent = 'Selecteer het apparaat dat u heeft. ';
+dropdownMenu.textContent = 'Selecteer het apparaat dat u heeft hieronder. ';
 
 var itemsContainer = document.createElement('div');
 parentContainer.appendChild(itemsContainer);
