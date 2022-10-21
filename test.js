@@ -5,19 +5,20 @@ dropdownMenuContainer.style.width = '20%';
 
 var dropdownMenu = document.createElement('div');
 dropdownMenuContainer.appendChild(dropdownMenu);
-dropdownMenu.style.cssText = '';
-dropdownMenu.style.width = '150px';
-dropdownMenu.style.height = '50px';
-dropdownMenu.textContent = 'this is a dropdown';
+dropdownMenu.style.cssText = 'background-color: rgba(175, 105, 216, 0.80); margin-left:5%; padding-top:80px; padding-bottom:80px; padding-left:10px; border-radius:100px; box-shadow: 10px 10px 8px #888888; font-size:20px; overflow: auto;';
+dropdownMenu.style.width = '200px';
+dropdownMenu.style.height = '60%';
+dropdownMenu.textContent = 'Selecteer apperaat';
 
 var itemsContainer = document.createElement('div');
 parentContainer.appendChild(itemsContainer);
-itemsContainer.style.cssText = 'display: flex; margin-top: 7%; justify-content: flex-start; flex-direction: column; overflow: auto;'; 
+itemsContainer.style.cssText = 'display: flex; margin-top: 5%; justify-content: flex-start; flex-direction: column; overflow: auto;'; 
+
 
 
 var koelkast = {
     name: 'koelkast',
-    timeOnHours: '6',
+    timeOnHours: '6', 
     wattusage: '50'
 };
 var vriezer = {
@@ -78,11 +79,6 @@ var opladers = {
     wattusage: '5',
 };
 
-
-
-
-
-
 var optionsList = {
     koelkast,
     vriezer,
@@ -99,16 +95,21 @@ var optionsList = {
 
 
 
+
 class Options {
     constructor(dropdownMenuOptionsContainer, optionsList) {
         for (var x = Object.keys(optionsList).length; x > 0; x--) {
             this.domElem = document.createElement('div');
             dropdownMenuOptionsContainer.appendChild(this.domElem);
-            this.domElem.style.cssText = 'height: 50px; width: 150px; background-color: red; border-style: solid;';
+            this.domElem.style.cssText = 'height: 50px; width: 92.5%; background-color: white; border-style:solid; border-width: 1px 1px 0px 1px; overflow: auto; display: flex; align-items: center; justify-content: center; ';
             var item = optionsList[Object.keys(optionsList)[x - 1]];
             this.domElem.textContent = item.name;
-
+            
+            if (x == 11){
+                this.domElem.style.marginTop = '20px';
+            };
             if (x == 1) {
+                this.domElem.style.borderWidth = '1px 1px 1px 1px';
                 this.domElem.onmousedown = function e() {
                     objectClicked(optionsList, 1);
                 };
@@ -169,6 +170,7 @@ class Options {
 
 
 
+
 dropdownMenu.onmouseenter = function e() {
     onHoverEnter(optionsList)
 };
@@ -194,7 +196,7 @@ function objectClicked(optionsList, x) {
     var domElemContainer = document.createElement('div');
     itemsContainer.appendChild(domElemContainer);
     domElemContainer.textContent = item.name;
-    domElemContainer.style.cssText = 'display: flex; align-items: center; margin-bottom: 5%; justify-content: space-between;';
+    domElemContainer.style.cssText = 'display: flex; align-items: center; margin-bottom: 5%;';
 
     
     var domInputWatt = document.createElement('INPUT');
