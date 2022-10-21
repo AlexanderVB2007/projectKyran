@@ -5,15 +5,14 @@ dropdownMenuContainer.style.width = '20%';
 
 var dropdownMenu = document.createElement('div');
 dropdownMenuContainer.appendChild(dropdownMenu);
-dropdownMenu.style.cssText = 'background-color:rgba(0, 236, 255, 0.11); margin-left:5%; padding-top:80px; padding-bottom:80px; padding-left:10px; border-radius:100px; box-shadow: 10px 10px 8px #888888; font-size:20px; overflow: auto;';
-dropdownMenu.style.width = '200px';
-dropdownMenu.style.height = '60%';
-dropdownMenu.textContent = 'Selecteer het apparaat dat u heeft hieronder. ';
+dropdownMenu.style.cssText = '';
+dropdownMenu.style.width = '150px';
+dropdownMenu.style.height = '50px';
+dropdownMenu.textContent = 'this is a dropdown';
 
 var itemsContainer = document.createElement('div');
 parentContainer.appendChild(itemsContainer);
 itemsContainer.style.cssText = 'display: flex; margin-top: 7%; justify-content: flex-start; flex-direction: column; overflow: auto;'; 
-
 
 
 var koelkast = {
@@ -31,22 +30,71 @@ var koelkastMetVriezer = {
     timeOnHours: '6',
     wattusage: '75'
 };
+var elektrischFornuis = {
+    name: 'Elektrisch fornhuis',
+    timeOnHours: '',
+    wattusage: '3000',
+};
+var oven = {
+    name: 'Oven',
+    timeOnHours: '',
+    wattusage: '3500',
+};
+var magnetron = {
+    name: 'Magnetron',
+    timeOnHours: '',
+    wattusage: '800',
+};
 
-var een = 1;
-var twee = 2; 
-var drie = 3; 
-var vier = 4; 
-var vijf = 5;
+
+
+var CVketelElektrisch = {
+    name: 'Elektrische CV ketel',
+    timeOnHours: '5',
+    wattusage: '5000',
+};
+
+var lichten = {
+    name: 'Lichten',
+    timeOnHours: '',
+    wattusage: '10',
+};
+
+var oplaadpaal = {
+    name: 'Oplaadpaal',
+    timeOnHours: '',
+    wattusage: '7200',
+};
+
+var huishoudelijkeApparaten = {
+    name: 'Extra apparaat',
+    timeOnHours: '',
+    wattusage: '',
+};
+
+var opladers = {
+    name: 'Opladers',
+    timeOnHours: '',
+    wattusage: '5',
+};
+
+
+
+
+
 
 var optionsList = {
-    vriezer,
     koelkast,
+    vriezer,
     koelkastMetVriezer,
-    een,
-    twee,
-    drie,
-    vier,
-    vijf
+    elektrischFornuis,
+    oven,
+    magnetron,
+    CVketelElektrisch,
+    lichten,
+    oplaadpaal,
+    huishoudelijkeApparaten,
+    opladers,
 };
 
 
@@ -56,19 +104,11 @@ class Options {
         for (var x = Object.keys(optionsList).length; x > 0; x--) {
             this.domElem = document.createElement('div');
             dropdownMenuOptionsContainer.appendChild(this.domElem);
-            this.domElem.style.cssText = 'height: 50px; width: 92.5%; background-color: rgba(175, 105, 216, 0.20); border-style:solid; border-width: 1px 1px 0px 1px; overflow: auto; ';
+            this.domElem.style.cssText = 'height: 50px; width: 150px; background-color: red; border-style: solid;';
             var item = optionsList[Object.keys(optionsList)[x - 1]];
             this.domElem.textContent = item.name;
-            
-            if (x == 3){
-                this.domElem.style.marginTop = '20px';
-            };
 
             if (x == 1) {
-                this.domElem.style.borderWidth = '1px 1px 1px 1px';
-            };
-            if (x == 1) {
-                
                 this.domElem.onmousedown = function e() {
                     objectClicked(optionsList, 1);
                 };
@@ -83,10 +123,49 @@ class Options {
                     objectClicked(optionsList, 3);
                 };
             };
+            if (x == 4) {
+                this.domElem.onmousedown = function e() {
+                    objectClicked(optionsList, 4);
+                };
+            };
+            if (x == 5) {
+                this.domElem.onmousedown = function e() {
+                    objectClicked(optionsList, 5);
+                };
+            };
+            if (x == 6) {
+                this.domElem.onmousedown = function e() {
+                    objectClicked(optionsList, 6);
+                };
+            };
+            if (x == 7) {
+                this.domElem.onmousedown = function e() {
+                    objectClicked(optionsList, 7);
+                };
+            };
+            if (x == 8) {
+                this.domElem.onmousedown = function e() {
+                    objectClicked(optionsList, 8);
+                };
+            };
+            if (x == 9) {
+                this.domElem.onmousedown = function e() {
+                    objectClicked(optionsList, 9);
+                };
+            };
+            if (x == 10) {
+                this.domElem.onmousedown = function e() {
+                    objectClicked(optionsList, 10);
+                };
+            };
+            if (x == 11) {
+                this.domElem.onmousedown = function e() {
+                    objectClicked(optionsList, 11);
+                };
+            };
         };
     };
 };
-
 
 
 
@@ -115,7 +194,7 @@ function objectClicked(optionsList, x) {
     var domElemContainer = document.createElement('div');
     itemsContainer.appendChild(domElemContainer);
     domElemContainer.textContent = item.name;
-    domElemContainer.style.cssText = 'display: flex; align-items: center; margin-bottom: 5%;';
+    domElemContainer.style.cssText = 'display: flex; align-items: center; margin-bottom: 5%; justify-content: space-between;';
 
     
     var domInputWatt = document.createElement('INPUT');
